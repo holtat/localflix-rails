@@ -18,6 +18,6 @@ class API::V1::TvShowsController < ApplicationController
   def set_tv_show_from_params
     @tv_show = TvShow.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    head :ok
+    head :not_found
   end
 end

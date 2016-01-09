@@ -35,13 +35,19 @@ RSpec.describe API::V1::TvShowsController, type: :controller do
           it { is_expected.to have_http_status :unauthorized }
         end
 
-        context 'whant authorized' do
+        context 'when authorized' do
           let(:tv_show) { create(:tv_show, user: user) }
           let(:params) { { id: tv_show.id } }
 
           it { is_expected.to have_http_status :ok }
           it { is_expected.to match_response_schema 'tv_show' }
         end
+      end
+
+      context 'when the id not valid' do
+        let(:params) { { id: -1 } }
+
+        it { is_expected.to have_http_status :not_found }
       end
     end
   end
