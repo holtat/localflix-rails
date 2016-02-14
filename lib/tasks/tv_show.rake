@@ -41,7 +41,9 @@ namespace :tv_show do
   end
 
   def create_episode(show, season, episode, path)
-    File.open(path + "/#{show[:name]}.S#{season + 1}.E#{episode + 1}.mkv", 'w')
+    name = show[:name].tr(' ', '')
+    episode = "S#{season + 1}E#{episode + 1}"
+    File.open(path + "/#{name}.#{episode}.mkv", 'w')
   end
 
   def dir_exists(path)
