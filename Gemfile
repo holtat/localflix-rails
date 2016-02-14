@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
-gem "rake", "0.8.7"
+gem 'rake'
 gem 'rails-api'
 gem 'pg'
 gem 'bcrypt'
@@ -9,9 +9,10 @@ gem 'jwt'
 gem 'active_model_serializers'
 gem 'pundit'
 gem 'sidekiq'
+gem 'toname'
 
 group :development do
-  gem "spring"
+  gem 'spring'
 end
 
 group :development, :test do
